@@ -54,13 +54,14 @@ var createtodo =function(todo){
 function themechange() {
     var theme2 = document.querySelectorAll('.theme')
     var newtheme= randomcolor()
+    // var newtheme2 = randomcolor()
     for (var i = 0; i < theme2.length; i++) {
         theme2[i].style.backgroundColor = newtheme;
+        // theme2.style.backgroundimage = lineargradient(newtheme,newtheme2)
     }
     // theme2[2].style.color =randomcolor()
 
-    var btn =document.querySelectorAll('button')
-    btn[0].style.color =randomcolor()
+   
 }
 
 var rand = function(){
