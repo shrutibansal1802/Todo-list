@@ -1,12 +1,54 @@
 
+// function test() {
+//     var list =document.querySelector('#list');
+//     var newitem =document.createElement('li');
+//     newitem.innerHTML =document.getElementById('inputbox').value;
+
+//     newitem.className +="theme"
+//     list.appendChild(newitem);
+//     document.getElementById('inputbox').value =" ";
+// }
+
+var togglecheck =function(){
+    let parent =this.parentNode
+    parent.classList.toggle('checked')
+}
+
+var deleteitem =function()
+{
+    let parent =this.parentNode;
+    parent.remove();
+}
+
 function test() {
     var list =document.querySelector('#list');
-    var newitem =document.createElement('li');
-    newitem.innerHTML =document.getElementById('inputbox').value;
+    
+    var inputtext =document.getElementById('inputbox').value;
 
-    newitem.className +="theme"
-    list.appendChild(newitem);
+    
+    list.appendChild(createtodo(inputtext));
     document.getElementById('inputbox').value =" ";
+}
+
+var createtodo =function(todo){
+    let li =document.createElement('li')
+    li.className+= 'theme'
+    let label = document.createElement('label')
+    label.innerHTML =todo;
+
+    let checkbox = document.createElement('input')
+    checkbox.type ='checkbox'
+    checkbox.onclick =togglecheck;
+
+    let deletebtn = document.createElement('button')
+    deletebtn.innerHTML = "delete"
+    deletebtn.className = 'delete'
+    deletebtn.onclick =deleteitem;
+
+    li.appendChild(checkbox);
+    li.appendChild(label)
+    li.appendChild(deletebtn);
+    return li;
 }
 
 function themechange() {

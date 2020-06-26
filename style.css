@@ -37,13 +37,20 @@ body{
    color:white;
     
 }
-li
+#list>li
 {
-    background-color: white;
-    margin: 5px;
+
+    
     text-align: start;
     padding-left: 4px;
     border-radius: 2px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    padding: 3px;
+}
+#list >li> label{
+    flex: 10;
 }
 
 .theme{
@@ -51,5 +58,15 @@ li
     color: white;
     text-transform: capitalize;
     border: black solid 1x;
+   
 
+}
+.delete{
+    margin: 3px;
+    border-radius: 5%;
+    border: 1px solid;
+}
+
+.checked> label{
+    text-decoration: line-through;
 }
