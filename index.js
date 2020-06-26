@@ -1,26 +1,12 @@
+
 function test() {
-
-    var newli =document.createElement('li');
-    var inputbox =document.getElementsById('newitem');
-    
-    inputbox.oninput =function(){
-        newli.innerHTML = this.value;
-    }
-//    newitem.style.backgroundColor=rgb(34,342,232);
-    
     var list =document.querySelector('#list');
+    var newitem =document.createElement('li');
+    newitem.innerHTML =document.getElementById('inputbox').value;
 
-    // var todo =document.querySelector('#heading');
-
+    newitem.className +="theme"
     list.appendChild(newitem);
-
-   
-
-}
-
-function testing(){
-   
-alert("hello");
+    document.getElementById('inputbox').value =" ";
 }
 
 function themechange() {

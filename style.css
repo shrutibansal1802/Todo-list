@@ -21,6 +21,7 @@ body{
     padding: 30px;
     text-align: center;
     border-radius: 5px;
+    border: solid black 2px;
    
    }
 .heading{
@@ -29,10 +30,10 @@ body{
     
 }
 
-#newitem
+#inputbox
 {
-    border: 0px;
-    width: 95%;
+   border-radius: 3px;
+    width: 88%;
    color:white;
     
 }
@@ -49,5 +50,6 @@ li
     background-color: lavender;
     color: white;
     text-transform: capitalize;
+    border: black solid 1x;
 
 }

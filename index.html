@@ -12,19 +12,17 @@
 
 <body>
     <div class="theme maincont">
-        <button id="btn" onclick=themechange() >change theme</button>
-        
+        <button id="btn" onclick=themechange()>change theme</button>
+
         <div class="cont">
             <h2 class="heading">To-do List</h2>
 
             <ul id="list">
-                <li class="theme"><input id="newitem" class=" theme" type="text" onclick="test()" placeholder="add new item">
-                </li>
-                <li class="theme">#1</li>
-                <li class="theme">#2</li>
-                <li class="theme">#3</li>
-
             </ul>
+            
+            <input id="inputbox" class=" theme" type="text" placeholder="add new item">
+            <button id="addnewtodo" onclick=test()>+</button>
+
         </div>
     </div>
 </body>
