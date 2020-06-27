@@ -1,14 +1,4 @@
 
-// function test() {
-//     var list =document.querySelector('#list');
-//     var newitem =document.createElement('li');
-//     newitem.innerHTML =document.getElementById('inputbox').value;
-
-//     newitem.className +="theme"
-//     list.appendChild(newitem);
-//     document.getElementById('inputbox').value =" ";
-// }
-
 var togglecheck =function(){
     let parent =this.parentNode
     parent.classList.toggle('checked')
@@ -20,29 +10,37 @@ var deleteitem =function()
     parent.remove();
 }
 
-function test() {
+var test =function() {
     var list =document.querySelector('#list');
     
-    var inputtext =document.getElementById('inputbox').value;
+    let inputtext =document.getElementById('inputbox').value;
 
-    
-    list.appendChild(createtodo(inputtext));
-    document.getElementById('inputbox').value =" ";
+    if(inputtext!== "")
+    {
+        
+        list.appendChild(createtodo(inputtext));
+        document.getElementById('inputbox').value =" ";
+    }
+    else{
+        return;
+    }
 }
 
 var createtodo =function(todo){
     let li =document.createElement('li')
-    li.className+= 'theme'
     let label = document.createElement('label')
     label.innerHTML =todo;
 
     let checkbox = document.createElement('input')
     checkbox.type ='checkbox'
+    checkbox.className ='check'
     checkbox.onclick =togglecheck;
+    
 
     let deletebtn = document.createElement('button')
     deletebtn.innerHTML = "delete"
-    deletebtn.className = 'delete'
+    deletebtn.className = 'theme delete'
+    
     deletebtn.onclick =deleteitem;
 
     li.appendChild(checkbox);
