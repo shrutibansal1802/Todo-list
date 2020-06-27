@@ -8,10 +8,15 @@ var togglecheck =function(){
 var deleteitem =function()
 {
     let parent =this.parentNode;
-    parent.remove();
-    localStorage.clear();
-   
+    var c = parent.childNodes
+    var index = itemsArray.indexOf(c[1].innerHTML)
+    console.log(c[1].innerHTML)
 
+    labelvalue =c[1].innerHTML
+    
+    parent.remove();
+    itemsArray.splice(index,1)
+    localStorage.setItem('items', JSON.stringify(itemsArray))
 }
 
 var createtodo =function(todo){
