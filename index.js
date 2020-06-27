@@ -4,32 +4,21 @@ var togglecheck =function(){
     parent.classList.toggle('checked')
 }
 
+
 var deleteitem =function()
 {
     let parent =this.parentNode;
     parent.remove();
-}
+    localStorage.clear();
+   
 
-var test =function() {
-    var list =document.querySelector('#list');
-    
-    let inputtext =document.getElementById('inputbox').value;
-
-    if(inputtext!== "")
-    {
-        
-        list.appendChild(createtodo(inputtext));
-        document.getElementById('inputbox').value =" ";
-    }
-    else{
-        return;
-    }
 }
 
 var createtodo =function(todo){
     let li =document.createElement('li')
     let label = document.createElement('label')
     label.innerHTML =todo;
+  
 
     let checkbox = document.createElement('input')
     checkbox.type ='checkbox'
@@ -48,6 +37,39 @@ var createtodo =function(todo){
     li.appendChild(deletebtn);
     return li;
 }
+
+
+
+let itemsArray =localStorage.getItem('items')?JSON.parse(localStorage.getItem('items')):[]
+
+localStorage.setItem('items', JSON.stringify(itemsArray))
+const data =JSON.parse(localStorage.getItem('items'))
+
+var list =document.querySelector('#list');
+
+data.forEach(element => {
+    list.appendChild(createtodo(element))
+});
+
+
+var test =function() {
+    var list =document.querySelector('#list');
+    
+    let inputtext =document.getElementById('inputbox').value;
+
+    if(inputtext!== "")
+    {
+        itemsArray.push(inputtext)
+        localStorage.setItem('items', JSON.stringify(itemsArray))
+
+        list.appendChild(createtodo(inputtext));
+        document.getElementById('inputbox').value =" ";
+    }
+    else{
+        return;
+    }
+}
+
 
 function themechange() {
     var theme2 = document.querySelectorAll('.theme')
