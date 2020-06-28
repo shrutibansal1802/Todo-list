@@ -75,10 +75,11 @@ var test =function() {
     }
 }
 
-
+var currenttheme='rgb(116, 116, 231)'
 function themechange() {
     var theme2 = document.querySelectorAll('.theme')
     var newtheme= randomcolor()
+    currenttheme =newtheme;
     // var newtheme2 = randomcolor()
     for (var i = 0; i < theme2.length; i++) {
         theme2[i].style.backgroundColor = newtheme;
@@ -95,4 +96,32 @@ var rand = function(){
 var randomcolor= function(){
     
     return 'rgb('+rand()+","+ rand() + ","+ rand() + ")"
+}
+
+let themearray = localStorage.getItem( 'color')?JSON.parse(localStorage.getItem('color')):[]
+function savetheme(){
+    themearray.push(currenttheme)
+    console.log(currenttheme)
+
+    localStorage.setItem('color',JSON.stringify(themearray))
+}
+var id=0;
+
+function applysaved(){
+    if(themearray.length===0)
+    alert('No saved themes')
+var themenow =document.querySelectorAll('.theme')
+if(id===themearray.length)
+id=0;
+for (var i = 0; i < themenow.length; i++) {
+    themenow[i].style.backgroundColor = themearray[id];
+    // theme2.style.backgroundimage = lineargradient(newtheme,newtheme2)
+}
+id++
+console.log(themearray.length)
+}
+
+function cleartheme(){
+    themearray=[];
+    localStorage.setItem('color',JSON.stringify(themearray))
 }
